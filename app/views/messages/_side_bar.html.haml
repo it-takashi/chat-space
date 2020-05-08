@@ -1,0 +1,18 @@
+.side-bar
+  .side-bar__user-name
+    .side-bar__user-name__top-item
+      .side-bar__user-name__top-item__name
+        fed
+      .side-bar__user-name__top-item__icons
+        = link_to "#" , class: "side-bar__user-name__top-item__btn"  do
+          = icon('far', 'edit') 
+          %span<>
+        = link_to "#", class: "side-bar__user-name__top-item__btn" do
+          = icon('fas', 'cog')
+          %span<>
+  .side-bar__group-list
+    .side-bar__group-list__group-box
+      .side-bar__group-list__group-box__group-name
+        techcamp
+      .side-bar__group-list__group-box__group-message
+        まだメッセージがありません
