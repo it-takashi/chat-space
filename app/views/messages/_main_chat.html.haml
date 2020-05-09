@@ -1,0 +1,28 @@
+-# ＜チャット画面＞
+.main-chat
+  .main-chat__group-info
+    .main-chat__group-info__group
+      .main-chat__group-info__group__name
+        test
+      .main-chat__group-info__group__member
+        "Member
+    = link_to "#" , class: "main-chat__group-info__btn"  do
+      = "Edit"
+  .main-chat__message-list
+    .main-chat__message-list__box
+      .main-chat__message-list__box__comment-info
+        .main-chat__message-list__box__comment-info__name
+          masa
+        .main-chat__message-list__box__comment-info__day
+          2020/5/8(Fri) 15:16
+      .main-chat__message-list__box__comment
+        おはよう！
+  .main-chat__message__from
+    %form.new-massage
+      .input-box
+        %input{type:"text", placeholder:"type a message", class: "input-box__text"}
+        %label{class: "input-box__image"}
+          = icon('fas', 'image')
+          %input{type:"file" ,class: "input-box__image__file"}
+      %input{type: "submit", value: "SEND", class:"submit-btn"}    
+
