@@ -56,7 +56,6 @@
     &__group-box{
       height: calc(15px + 5px + 11px + 40px);
       width: calc(100% - 40px );
-      color: #ffffff;
       padding-bottom: 40px;
       font-weight: bold;
       &__group-name{
@@ -65,11 +64,17 @@
         line-height: 15px;
         font-size: 15px;
         margin-bottom: 5px;
+        display: block;
+        text-decoration: none;
+        color: #ffffff;
       }
       &__group-message{
         height: 11px;
         line-height: 11px;
         font-size: 11px;
+        display: block;
+        text-decoration: none;
+        color: #ffffff;
       }
     }
   }
