@@ -130,8 +130,8 @@
     padding-left: 40px;
     padding-right: 40px;
     padding-bottom: 35px;
+    overflow: scroll;
     &__box{
-      height: 123px;
       padding-bottom: 46px;
       &__comment-info{
         height: 16px;
@@ -151,45 +151,46 @@
         }
       }
       &__comment{
-        height: 14px;
         color:#434A54;
         font-size: 14px;
         line-height: 14px;
       }
+      .lower-message__image{
+        width: 200px;
+        height: 200px;
+      }
     }
   }
 
-  &__message__from{
+  &__message-from{
     height: 90px;
     width: 100%;
     background-color:#d2d2d2;
     @include displayflex;
-    .new-massage{
+    .new_message{
       width: calc(100% - 80px);
-      @include flex_space-between;
       height: 50px;
-      .input-box{
-        width: calc( 100% - 115px);
+      @include flex_space-between;
+      .form__message{
+        width: calc(100% - 115px );
         height: 50px;
-        @include flex_space-between;
-        align-items: center;
+        padding-left: 10px;
+      }
+
+      .mask{
         position: relative;
-        &__text{
-          height: 50px;
-          width: 100%;
-          padding:0 40px 0 10px;
-        }
-        &__image{
+        .icon{
           position: absolute;
           right: 10px;
-          top: 10px;
+          line-height: 50px;
           cursor: pointer;
-          &__file{
-            display: none;
-          }
+        }
+        .hidden{
+          display: none;
         }
       }
-      .submit-btn{
+
+      .form__submit{
         height: 100%;
         width: 100px;
         margin-left: 15px;
