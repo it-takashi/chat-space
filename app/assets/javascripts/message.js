@@ -65,6 +65,7 @@ $(function(){
     .fail(function(){
       alert("メッセージ送信に失敗しました")
       $('.form__submit').prop('disabled', false);
+      $('#new_message')[0].reset();
     })
 
 
