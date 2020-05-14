@@ -1,5 +1,10 @@
 $(function(){
 
+  function always() {
+    $('.form__submit').prop('disabled', false);
+    $('#new_message')[0].reset();
+  }
+
   function buildHTML(message) {
     if ( message.image ) {
       var html = `<div class="main-chat__message-list__box">
@@ -57,17 +62,13 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.main-chat__message-list').append(html);
-      $('.form__submit').prop('disabled', false);
-      $('#new_message')[0].reset();
+      always()
       $('.main-chat__message-list').animate({ scrollTop: $('.main-chat__message-list')[0].scrollHeight});
     })
 
     .fail(function(){
       alert("メッセージ送信に失敗しました")
-      $('.form__submit').prop('disabled', false);
-      $('#new_message')[0].reset();
+      always()
     })
-
-
   })
 });
