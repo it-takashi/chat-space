@@ -1,10 +1,5 @@
 $(function(){
 
-  function always() {
-    $('.form__submit').prop('disabled', false);
-    $('#new_message')[0].reset();
-  }
-
   var box = $(".main-chat__message-list");
 
   function buildHTML(message) {
@@ -65,13 +60,17 @@ $(function(){
       var html = buildHTML(data);
       box.append(html);
       box.animate({ scrollTop: box[0].scrollHeight});
-      // always()
     })
 
     .fail(function(){
       alert("メッセージ送信に失敗しました")
     })
-    always()
+
+    .always(function() {
+      $('.form__submit').prop('disabled', false);
+      $('#new_message')[0].reset();
+    });
+    
   })
 
 
