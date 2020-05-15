@@ -64,14 +64,14 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       box.append(html);
-      always()
       box.animate({ scrollTop: box[0].scrollHeight});
+      // always()
     })
 
     .fail(function(){
       alert("メッセージ送信に失敗しました")
-      always()
     })
+    always()
   })
 
 
