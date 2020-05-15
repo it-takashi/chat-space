@@ -5,9 +5,11 @@ $(function(){
     $('#new_message')[0].reset();
   }
 
+  var box = $(".main-chat__message-list");
+
   function buildHTML(message) {
     if ( message.image ) {
-      var html = `<div class="main-chat__message-list__box">
+      var html = `<div class="main-chat__message-list__box" data-message-id=${message.id}>
                     <div class="main-chat__message-list__box__comment-info">
                       <div class="main-chat__message-list__box__comment-info__name">
                         ${message.user_name}
@@ -26,7 +28,7 @@ $(function(){
       return html;
     } else {
       var html =
-        `<div class="main-chat__message-list__box">
+        `<div class="main-chat__message-list__box" data-message-id=${message.id}>
           <div class="main-chat__message-list__box__comment-info">
             <div class="main-chat__message-list__box__comment-info__name">
               ${message.user_name}
@@ -61,9 +63,9 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.main-chat__message-list').append(html);
+      box.append(html);
       always()
-      $('.main-chat__message-list').animate({ scrollTop: $('.main-chat__message-list')[0].scrollHeight});
+      box.animate({ scrollTop: box[0].scrollHeight});
     })
 
     .fail(function(){
@@ -71,4 +73,31 @@ $(function(){
       always()
     })
   })
+
+
+  var reloadMessages = function() {
+    var last_message_id = $('.main-chat__message-list__box:last').data("message-id");
+    $.ajax({
+      url: "api/messages",
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      if (messages.length !== 0) {
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        box.append(insertHTML);
+        box.animate({ scrollTop: box[0].scrollHeight});
+      }
+    })
+    .fail(function() {
+      alert('error')
+    });
+  };
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  }
 });
