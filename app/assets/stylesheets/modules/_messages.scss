@@ -58,22 +58,24 @@
       width: calc(100% - 40px );
       padding-bottom: 40px;
       font-weight: bold;
+      text-decoration: none;
+
+      &__link{
+        text-decoration: none;
+      }
+
       &__group-name{
         height: 15px;
         width: 100%;
         line-height: 15px;
         font-size: 15px;
         margin-bottom: 5px;
-        display: block;
-        text-decoration: none;
         color: #ffffff;
       }
       &__group-message{
         height: 11px;
         line-height: 11px;
         font-size: 11px;
-        display: block;
-        text-decoration: none;
         color: #ffffff;
       }
     }
